@@ -4,6 +4,7 @@
     border-radius: 0.2rem;
     border-collapse: separate;
     overflow: hidden;
+    background-color: red;
 }
 
 .grid{

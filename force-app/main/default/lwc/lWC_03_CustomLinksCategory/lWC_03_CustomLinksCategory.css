@@ -1,0 +1,15 @@
+.link-col{
+    background-color: #F4F6F9;
+    color: #2D466D;
+    height: 3rem;
+    border: 1px solid #E2E5EA;
+}
+
+a{
+    text-decoration: none;
+    color: #2D466D;
+}
+
+a:hover{
+    text-decoration: underline;
+}
