@@ -10,6 +10,11 @@
     <template for:each={categories.data} for:item="category">
       <div key={category.Id}>
           <h4 class="slds-col slds-text-align_left title">{category.Category_Label__c}</h4>
+          <div class="slds-p-around_medium lgc-bg">
+            <lightning-button-icon icon-name="utility:add" variant="container" alternative-text="add category" class="slds-m-left_xx-small" title="Add"></lightning-button-icon>
+            <lightning-button-icon icon-name="utility:edit" variant="container" alternative-text="edit category" class="slds-m-left_xx-small" title="Edit"></lightning-button-icon>
+            <lightning-button-icon icon-name="utility:delete"    variant="container" alternative-text="Delete"   class="slds-m-left_xx-small" title="Delete"></lightning-button-icon>
+          </div>
       </div>
     </template>
     <template if:true={categories.error}>

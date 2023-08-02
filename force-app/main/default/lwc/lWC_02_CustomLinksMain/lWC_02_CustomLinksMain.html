@@ -15,8 +15,11 @@
             <!-- <lightning-avatar variant="circle" src="https://www.lightningdesignsystem.com/assets/images/avatar2.jpg" initials="AW" fallback-icon-name="standard:person_account" alternative-text="Amy Weaver" class="slds-m-right_large"></lightning-avatar> -->
             <lightning-avatar variant="circle" src='' initials={userInitials} fallback-icon-name="standard:user" alternative-text="Amy Weaver" class="slds-m-right_large"></lightning-avatar>
             <h1 class="salutation">{greeting} {currentUserName} !</h1>
-            <h2 class="explanation">Gérez vos raccourcis</h2>
-            <lightning-button variant="brand-outline" label="+" title="New category action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+            <div class="slds-p-around_medium lgc-bg">
+                <lightning-button-icon icon-name="utility:add" variant="container" alternative-text="add category" class="slds-m-left_xx-small" title="Add"></lightning-button-icon>
+                <lightning-button-icon icon-name="utility:edit" variant="container" alternative-text="edit category" class="slds-m-left_xx-small" title="Edit"></lightning-button-icon>
+                <lightning-button-icon icon-name="utility:delete"    variant="container" alternative-text="Delete"   class="slds-m-left_xx-small" title="Delete"></lightning-button-icon>
+            </div>
         </div>
 
         <!-- Categories row -->
