@@ -1,0 +1,34 @@
+<!--
+  @description       : NavBar used to store links of SF files and display a personalised welcoming 
+                       message to the user
+  @author            : Thomas Boulvard
+  @group             : Cognizant
+  @last modified on  : 05-10-2023
+  @last modified by  : Thomas Boulvard
+-->
+
+<template>
+    <div class="card" >
+    <!-- Grid -->
+    <div class="slds-grid slds-grid_vertical grid">
+        <!-- User Row -->
+        <div class="slds-col user-col slds-p-around_medium slds-grid slds-grid_vertical-align-center">
+            <!-- <lightning-avatar variant="circle" src="https://www.lightningdesignsystem.com/assets/images/avatar2.jpg" initials="AW" fallback-icon-name="standard:person_account" alternative-text="Amy Weaver" class="slds-m-right_large"></lightning-avatar> -->
+            <lightning-avatar variant="circle" src='' initials={userInitials} fallback-icon-name="standard:user" alternative-text="Amy Weaver" class="slds-m-right_large"></lightning-avatar>
+            <h1 class="salutation">{greeting} {currentUserName} !</h1>
+            <h2 class="explanation">Gérez vos raccourcis</h2>
+            <lightning-button variant="brand-outline" label="+" title="New category action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+        </div>
+
+        <!-- First title row -->
+        <div class="slds-col title-col slds-p-around_small slds-grid slds-grid_vertical-align-center">
+            <h4 class="slds-col slds-text-align_left title">CUSTOM CATEGORY</h4>
+            <lightning-button variant="base" label="+" title="New link action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+        </div>
+        <div class="slds-col link-col slds-p-around_small slds-grid slds-grid_vertical-align-center">
+            <lightning-icon class="slds-m-right_x-small" size="small" icon-name="doctype:excel" alternative-text="conga pays file" title="conga pays"></lightning-icon>
+            <a>Custom Link</a>
+        </div>
+    </div>
+</div>
+</template>

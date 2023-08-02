@@ -1,0 +1,44 @@
+.card{
+    padding: 0;
+    margin: 0;
+    border-radius: 0.2rem;
+    border-collapse: separate;
+    overflow: hidden;
+}
+
+.grid{
+    padding: 0;
+    margin: 0;
+}
+
+.user-col{
+    background-color: #fff;
+    color: #3F5679;
+    height: 4rem;
+}
+
+.salutation{
+    font-weight: bold;
+}
+
+.title-col{
+    background-color: #E0E5EE;
+    color: #5F7395;
+    height: 1.5rem;
+}
+
+.link-col{
+    background-color: #F4F6F9;
+    color: #2D466D;
+    height: 3rem;
+    border: 1px solid #E2E5EA;
+}
+
+a{
+    text-decoration: none;
+    color: #2D466D;
+}
+
+a:hover{
+    text-decoration: underline;
+}
