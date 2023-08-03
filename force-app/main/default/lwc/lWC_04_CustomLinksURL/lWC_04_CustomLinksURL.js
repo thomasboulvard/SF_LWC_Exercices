@@ -1,7 +1,7 @@
 import { LightningElement, wire } from 'lwc';
-import getLinksList from '@salesforce/apex/AP01_DAO_CustomLinks.getLinksList';
+import getLinksListController from '@salesforce/apex/AP02_CustomLinksHandler.getLinksListController';
 
 export default class LWC_04_CustomLinksURL extends LightningElement {
-    @wire(getLinksList)
+    @wire(getLinksListController)
     links;
 }
