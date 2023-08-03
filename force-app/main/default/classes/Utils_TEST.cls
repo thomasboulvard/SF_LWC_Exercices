@@ -1,3 +1,11 @@
+/*
+  @description       : Utils class made to store the methods we will use in our Test class to create records of specific objects
+  @author            : Thomas Boulvard
+  @group             : Boulvard Corp.
+  @last modified on  : 03/08/2023
+  @last modified by  : Thomas Boulvard
+*/
+
 @isTest
 public with sharing class Utils_TEST {
     
