@@ -21,6 +21,9 @@ public with sharing class AP02_CustomLinksHandler_TEST {
         // Create a user
         User user = Utils_TEST.createSysAdminUser('Alex', 'Terieur', 'alexterieur@example.com');
         insert user;
+
+        Custom_Link_Category__c clc = Utils_TEST.createCustomLinkCategory(user.Id, 'label clc');
+        insert clc;
     }
     
     // *************************************
@@ -31,8 +34,9 @@ public with sharing class AP02_CustomLinksHandler_TEST {
 
     @isTest
     public static void callDaoTEST() {
+        Custom_Link_Category__c clc = [SELECT Id FROM Custom_Link_Category__c WHERE Category_Label__c = 'label clc'];
         AP02_CustomLinksHandler.getCategoriesListController();
-        AP02_CustomLinksHandler.getLinksListController();
+        AP02_CustomLinksHandler.getLinksListController(clc.Id);
     }
 
 
@@ -46,7 +50,7 @@ public with sharing class AP02_CustomLinksHandler_TEST {
     @isTest
     public static void addCategoryTEST() {
         User user = [SELECT Id FROM User WHERE Email = 'alexterieur@example.com'];
-        String userId = user.Id;
+        Id userId = user.Id;
         String categoryLabel = 'Test category';
 
         Test.startTest();

@@ -1,12 +1,7 @@
-.grid{
-    padding: 0;
-    margin: 0;
-}
-
-.link-col{
+.link-container{
     background-color: #F4F6F9;
     color: #2D466D;
-    /* height: 3rem; */
+    height: 3rem;
     border: 1px solid #E2E5EA;
 }
 

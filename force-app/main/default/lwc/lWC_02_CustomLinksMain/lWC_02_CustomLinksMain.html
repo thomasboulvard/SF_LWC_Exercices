@@ -14,16 +14,17 @@
         <div class="slds-col user-col slds-p-around_medium slds-grid slds-grid_vertical-align-center">
             <!-- <lightning-avatar variant="circle" src="https://www.lightningdesignsystem.com/assets/images/avatar2.jpg" initials="AW" fallback-icon-name="standard:person_account" alternative-text="Amy Weaver" class="slds-m-right_large"></lightning-avatar> -->
             <lightning-avatar variant="circle" src='' initials={userInitials} fallback-icon-name="standard:user" alternative-text="Amy Weaver" class="slds-m-right_large"></lightning-avatar>
-            <h1 class="salutation">{greeting} {currentUserName} !</h1>
-            <div class="slds-p-around_medium lgc-bg">
-                <lightning-button-icon icon-name="utility:add" variant="container" alternative-text="add category" class="slds-m-left_xx-small" title="Add"></lightning-button-icon>
-                <lightning-button-icon icon-name="utility:edit" variant="container" alternative-text="edit category" class="slds-m-left_xx-small" title="Edit"></lightning-button-icon>
-                <lightning-button-icon icon-name="utility:delete"    variant="container" alternative-text="Delete"   class="slds-m-left_xx-small" title="Delete"></lightning-button-icon>
-            </div>
+            <h1 class="salutation">{labels.CL_Text_Greetings} {currentUserName} !</h1>
+                <div class="slds-p-around_medium lgc-bg">
+                    <lightning-button-icon icon-name="utility:add" variant="container" alternative-text="add category" class="slds-m-left_xx-small" title={labels.CL_HelpText_AddCategory} onclick={addCat} aria-haspopup="dialog"></lightning-button-icon>
+                    <!-- <lightning-button-icon icon-name="utility:edit" variant="container" alternative-text="edit category" class="slds-m-left_xx-small" title="Edit"></lightning-button-icon>
+                    <lightning-button-icon icon-name="utility:delete" variant="container" alternative-text="Delete"   class="slds-m-left_xx-small" title="Delete"></lightning-button-icon> -->
+                </div>
         </div>
 
         <!-- Categories row -->
-        <div class="slds-col title-col slds-p-around_small slds-grid slds-grid_vertical-align-center">
+        <!-- <div class="slds-col title-col slds-p-around_small slds-grid slds-grid_vertical-align-center"> -->
+        <div class="slds-grid slds-grid_vertical grid title-col">
                 <c-l-W-C_-03_-Custom-Links-Category></c-l-W-C_-03_-Custom-Links-Category>
         </div>
     </div>

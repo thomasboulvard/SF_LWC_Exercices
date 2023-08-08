@@ -1,28 +1,25 @@
 import { LightningElement, wire, track } from 'lwc';
-import Id from '@salesforce/user/Id';
 import { getRecord } from 'lightning/uiRecordApi';
+
+// IMPORT OBJECTS & FIELDS :
+import Id from '@salesforce/user/Id';
 import UserNameFIELD from '@salesforce/schema/User.Name';
+
+// IMPORT MODALS :
+import LWC_05_CustomLinksModalAddCategory from 'c/lWC_05_CustomLinksModalAddCategory';
+
+// IMPORT CUSTOM LABELS :
+import CL_HelpText_AddCategory from '@salesforce/label/c.CL_HelpText_AddCategory';
+import CL_Text_Greetings from '@salesforce/label/c.CL_Text_Greetings';
 
 export default class LWC_02_CustomLinksMain extends LightningElement {
     @track currentUserName;
     @track userId = Id;
     @track greeting;
-
-    // Get the user language to adapt the greeting accordingly
-    connectedCallback() {
-        const userLang = navigator.language || navigator.userLanguage;
-        console.log('USer language : ' + userLang);
-        if(userLang.startsWith('en')) {
-            this.greeting = 'Hello';
-        } else if (userLang.startsWith('fr')) {
-            this.greeting = 'Bonjour';
-        } else if (userLang.startsWith('es')) {
-            this.greeting = 'Hola';
-        } else {
-            this.greeting = 'Hello';
-        }
-    }
-    
+    labels = {
+        CL_HelpText_AddCategory, 
+        CL_Text_Greetings
+    };
 
     // Get the username to display it on our LWC
     @wire(getRecord, { recordId: Id, fields: [UserNameFIELD]}) 
@@ -34,7 +31,6 @@ export default class LWC_02_CustomLinksMain extends LightningElement {
         }
     }
 
-
     // If there is no profile pic, the function below split the firstname and the lastname to create the initials of the user
     get userInitials() {
         let initials = '';
@@ -45,5 +41,14 @@ export default class LWC_02_CustomLinksMain extends LightningElement {
             }
         }
         return initials.toUpperCase();
+    }
+
+    async addCat() {
+        const result = await LWC_05_CustomLinksModalAddCategory.open({
+            size: 'small',
+            description: 'My Modal',
+            content : 'oui',
+        });
+        console.log(result);
     }
 }

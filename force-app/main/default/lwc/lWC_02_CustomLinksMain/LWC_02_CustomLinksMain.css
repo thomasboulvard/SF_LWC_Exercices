@@ -24,12 +24,5 @@
 .title-col{
     background-color: #E0E5EE;
     color: #5F7395;
-    height: 1.5rem;
-}
-
-.c-l-W-C_-03_-Custom-Links-Category .link-col{
-    background-color: #F4F6F9;
-    color: #2D466D;
-    height: 3rem;
-    border: 1px solid #E2E5EA;
+    /* height: 1.5rem; */
 }

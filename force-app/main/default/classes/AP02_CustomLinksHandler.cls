@@ -16,12 +16,17 @@ public with sharing class AP02_CustomLinksHandler {
 
     @AuraEnabled(cacheable=true)
     public static List<Custom_Link_Category__c> getCategoriesListController() {
-        return AP01_DAO_CustomLinks.getCategoriesList();
+        AP01_DAO_CustomLinks dao = new AP01_DAO_CustomLinks();
+        System.debug('liste Category : ' + dao.getCategoriesList());
+        return dao.getCategoriesList();
     }
-
+    
+    
     @AuraEnabled(cacheable=true)
-    public static List<Custom_Link__c> getLinksListController() {
-        return AP01_DAO_CustomLinks.getLinksList();
+    public static List<Custom_Link__c> getLinksListController(Id categoryId) {
+        AP01_DAO_CustomLinks dao = new AP01_DAO_CustomLinks();
+        System.debug('liste Links : ' + dao.getLinksList(categoryId));
+        return dao.getLinksList(categoryId);
     }
 
     // *************************************
@@ -31,15 +36,17 @@ public with sharing class AP02_CustomLinksHandler {
     // *************************************
 
     // Add Category method
-    public void addCategory(String userID, String label) {
+    @AuraEnabled(cacheable=false)
+    public static void addCategory(Id userID, String label) {
         try {
             Custom_Link_Category__c clc = new Custom_Link_Category__c();
             clc.User__c = userID;
             clc.Category_Label__c = label;
 
+            
             insert clc;
         } catch (Exception e) {
-            System.debug('AP02_CustomLinksHandler - An error occurred while CREATING the CATEGORY : ' + e.getMessage());
+            System.debug('AP02_CustomLinksHandler.addCategory() --> In Catch ' + e.getMessage());
         }
     }
 

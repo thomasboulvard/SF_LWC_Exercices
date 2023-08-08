@@ -17,11 +17,12 @@ public with sharing class AP01_DAO_CustomLinks {
             ];
     }
 
-    public List<Custom_Link__c> getLinksList() {
+    public List<Custom_Link__c> getLinksList(Id categoryId) {
         return 
             [
                 SELECT Id, Link_Label__c, Link_URL__c, Link_Category__c
-                FROM Custom_Link__c 
+                FROM Custom_Link__c
+                WHERE Link_Category__c =: categoryId
             ];
     }
 }
