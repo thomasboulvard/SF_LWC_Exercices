@@ -1,8 +1,21 @@
 <template>
-    <lightning-modal-header label="Validation"></lightning-modal-header>
-    <lightning-modal-body> {validationMessage} </lightning-modal-body>
+    <!-- HEADER -->
+    <lightning-modal-header label="Title"></lightning-modal-header>
+
+    <!-- BODY -->
+    <lightning-modal-body>
+        <div class="slds-grid">
+            <div class="slds-col slds-p-around_medium slds-size_1-of-1">
+                <h1 class="slds-text-align_center slds-text-heading_medium warning-message">{labels.CL_Text_ConfirmationDeletion}</h1>
+            </div>
+        </div>
+    </lightning-modal-body>
+
+    <!-- FOOTER -->
     <lightning-modal-footer>
-        <lightning-button label="CANCEL" onclick={handleOkay}></lightning-button>
-        <lightning-button label="VALIDATE" onclick={handleOkay}></lightning-button>
+        <lightning-button label={labels.CL_Button_Cancel} title="Cancel action" onclick={cancelClick}
+            class="slds-m-left_x-small"></lightning-button>
+        <lightning-button variant="destructive" label={labels.CL_Button_Delete} title="Destructive action"
+            onclick={deleteClick} class="slds-m-left_x-small"></lightning-button>
     </lightning-modal-footer>
 </template>

@@ -1,10 +1,12 @@
-    const showToast = (title, message, variant) => {
-        const event = new ShowToastEvent({
-            title,
-            message,
-            variant,
-        });
-        dispatchEvent(event);
-    };
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
-    export { showToast };
+export default class Utils {
+
+    static showToast(title, message, variant) {
+        return new ShowToastEvent({
+            title: title,
+            message: message,
+            variant: variant || 'success',
+        });
+    }
+}

@@ -1,25 +1,26 @@
 <template>
-    <!-- HEADER -->
-    <lightning-modal-header label={labels.CL_Text_TitleCreateCategoryModal}></lightning-modal-header>
-    
-    <!-- BODY -->
-    <lightning-modal-body>
-        <p class="slds-p-horizontal_small">{labels.CL_Text_CreateCategoryModal}</p>
-        <div class="slds-form-element slds-p-around_medium">
-            <label class="slds-form-element__label" for="text-input-id-47">
-              <abbr class="slds-required" title="required">* </abbr>{labels.CL_Text_LabelCategoryModal}
-            </label>
-            <div class="slds-form-element__control">
-              <input type="text" id="text-input-id-47" placeholder="ex : my links" required="" class="slds-input" value={categoryLabel} onchange={handleCategoryLabelChange}/>
-            </div>
-          </div>
-    </lightning-modal-body>
+  <!-- HEADER -->
+  <lightning-modal-header label={labels.CL_Text_TitleCreateCategoryModal}></lightning-modal-header>
 
-    <!-- FOOTER -->
-    <lightning-modal-footer>
-        <lightning-button slot="footer" variant="destructive-text" label={labels.CL_Button_Cancel} title="Cancel action" onclick={cancelClick}></lightning-button>
-        <lightning-button slot="footer" variant="brand" label={labels.CL_Button_Validate} title="Validate action" onclick={saveClick}></lightning-button>
-        <!-- <lightning-button slot="footer" variant="destructive-text" label={labels.CL_Button_Cancel} title="Cancel action" onclick={cancelClick} class="slds-m-left_x-small"></lightning-button>
-        <lightning-button slot="footer" variant="brand" label={labels.CL_Button_Validate} title="Validate action" onclick={saveClick} class="slds-m-left_x-small"></lightning-button> -->
-    </lightning-modal-footer>
+  <!-- BODY -->
+  <lightning-modal-body>
+    <p class="slds-p-horizontal_small">{labels.CL_Text_CreateCategoryModal}</p>
+    <div class="slds-form-element slds-p-around_medium">
+      <label class="slds-form-element__label" for="text-input-id-47">
+        <abbr class="slds-required" title="required">* </abbr>{labels.CL_Text_LabelCategoryModal}
+      </label>
+      <div class="slds-form-element__control">
+        <input type="text" id="text-input-id-47" placeholder="ex : my links" required="" class="slds-input"
+          value={categoryLabel} onchange={handleCategoryLabelChange} />
+      </div>
+    </div>
+  </lightning-modal-body>
+
+  <!-- FOOTER -->
+  <lightning-modal-footer>
+    <lightning-button variant="destructive-text" label={labels.CL_Button_Cancel} title="Cancel action"
+      onclick={cancelClick} class="slds-m-left_x-small"></lightning-button>
+    <lightning-button variant="brand" label={labels.CL_Button_Validate} title="Validate action" onclick={saveClick}
+      class="slds-m-left_x-small"></lightning-button>
+  </lightning-modal-footer>
 </template>

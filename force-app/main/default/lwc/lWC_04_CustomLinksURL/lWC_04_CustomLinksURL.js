@@ -1,5 +1,10 @@
+// IMPORT LIGHTNING METHODS/ACTIONS
 import { LightningElement, wire, api, track } from 'lwc';
+
+// IMPORT METHODS
 import getLinksListController from '@salesforce/apex/AP02_CustomLinksHandler.getLinksListController';
+
+// IMPORT CUSTOM LABELS :
 import CL_HelpText_UpdateLink from '@salesforce/label/c.CL_HelpText_UpdateLink';
 import CL_HelpText_DeleteLink from '@salesforce/label/c.CL_HelpText_DeleteLink';
 

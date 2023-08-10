@@ -10,12 +10,15 @@
   <template if:true={links.data}>
     <template for:each={links.data} for:item="link">
       <div key={link.Id} class="slds-p-around_small link-container">
-        <lightning-icon class="slds-m-right_x-small" size="small" icon-name="doctype:link" alternative-text="link"></lightning-icon>
-        <a href={link.Link_URL__c} class="slds-col slds-text-align_left title">{link.Link_Label__c}</a>
-        <div class="slds-p-around_medium lgc-bg ">
-          <!-- <lightning-button-icon icon-name="utility:add" variant="container" alternative-text="add category" class="slds-m-left_xx-small" title="Add"></lightning-button-icon> -->
-          <lightning-button-icon icon-name="utility:edit" variant="container" alternative-text="edit category" class="slds-m-left_xx-small" title={labels.CL_HelpText_UpdateLink}></lightning-button-icon>
-          <lightning-button-icon icon-name="utility:delete" variant="container" alternative-text="Delete" class="slds-m-left_xx-small" title={labels.CL_HelpText_DeleteLink}></lightning-button-icon>
+        <div class="slds-grid slds-gutters">
+          <div class="slds-col slds-p-left_medium slds-size_2-of-3 links-title">
+            <lightning-icon class="slds-m-right_x-small" size="small" icon-name="doctype:link" alternative-text="link"></lightning-icon>
+            <a href={link.Link_URL__c} class="slds-text-align_left title">{link.Link_Label__c}</a>
+          </div>
+          <div class="slds-col slds-p-right_medium slds-size_1-of-3 lgc-bg">
+            <lightning-button-icon icon-name="utility:edit" variant="container" alternative-text="edit category" class="slds-m-left_xx-small" title={labels.CL_HelpText_UpdateLink}></lightning-button-icon>
+            <lightning-button-icon icon-name="utility:delete" variant="container" alternative-text="Delete" class="slds-m-left_xx-small" title={labels.CL_HelpText_DeleteLink}></lightning-button-icon>
+          </div>
         </div>
       </div>
     </template>

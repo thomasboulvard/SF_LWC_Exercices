@@ -81,7 +81,8 @@ public with sharing class AP02_CustomLinksHandler {
     // *************************************
 
     // Add link method
-    public void addLink(String label, String categoryID, String url) {
+    @AuraEnabled(cacheable=false)
+    public static void addLink(String label, String categoryID, String url) {
         try {
             Custom_Link__c cl = new Custom_Link__c();
             cl.Link_Label__c = label;

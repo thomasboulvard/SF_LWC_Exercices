@@ -1,3 +1,4 @@
+// IMPORT LIGHTNING METHODS/ACTIONS
 import { LightningElement, wire, track } from 'lwc';
 import { getRecord } from 'lightning/uiRecordApi';
 
@@ -12,16 +13,19 @@ import LWC_05_CustomLinksModalAddCategory from 'c/lWC_05_CustomLinksModalAddCate
 import CL_HelpText_AddCategory from '@salesforce/label/c.CL_HelpText_AddCategory';
 import CL_Text_Greetings from '@salesforce/label/c.CL_Text_Greetings';
 
+
 export default class LWC_02_CustomLinksMain extends LightningElement {
     @track currentUserName;
     @track userId = Id;
     @track greeting;
+
+    // List of the different labels we're gonna use on this LWC :
     labels = {
         CL_HelpText_AddCategory, 
         CL_Text_Greetings
     };
 
-    // Get the username to display it on our LWC
+    // Method to get the user's username 
     @wire(getRecord, { recordId: Id, fields: [UserNameFIELD]}) 
     currentUserInfo({error, data}) {
         if (data) {
@@ -31,7 +35,7 @@ export default class LWC_02_CustomLinksMain extends LightningElement {
         }
     }
 
-    // If there is no profile pic, the function below split the firstname and the lastname to create the initials of the user
+    // Method to split the firstname and the lastname to create the initials of the user
     get userInitials() {
         let initials = '';
         if (this.currentUserName) {
@@ -43,6 +47,7 @@ export default class LWC_02_CustomLinksMain extends LightningElement {
         return initials.toUpperCase();
     }
 
+    // Method to create a new Category
     async addCat() {
         const result = await LWC_05_CustomLinksModalAddCategory.open({
             size: 'small',
