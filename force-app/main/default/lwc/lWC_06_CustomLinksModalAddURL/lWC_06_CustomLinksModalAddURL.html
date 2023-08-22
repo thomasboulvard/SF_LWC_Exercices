@@ -1,34 +1,77 @@
+<!-- ............................... -->
+<!-- HTML TO CREATE A BRAND NEW LINK -->
+<!-- ............................... -->
 <template>
-  <!-- HEADER -->
-  <lightning-modal-header label={labels.CL_Text_TitleCreateLinkModal}></lightning-modal-header>
+  <template if:false={isUpdate}>
+    <!-- HEADER -->
+    <lightning-modal-header label={labels.CL_Text_TitleCreateLinkModal}></lightning-modal-header>
 
-  <!-- BODY -->
-  <lightning-modal-body>
-    <!-- Creation sentence -->
-    <p class="slds-p-horizontal_small">{labels.CL_Text_CreateLinkModal}</p>
+    <!-- BODY -->
+    <lightning-modal-body>
+      <p class="slds-p-horizontal_small">{labels.CL_Text_CreateLinkModal}</p>
+      <!-- Form -->
+      <div class="slds-grid slds-wrap">
+        <!-- Row 1 | Column 1 -->
+        <div class="slds-col slds-size_1-of-2 slds-p-horizontal_small">
+          <lightning-input label="Label" type="text" value={label} onchange={handleLabelChange} maxlength="50"
+            required></lightning-input>
+        </div>
+        <!-- Row 1 | Column 2 -->
+        <div class="slds-col slds-size_1-of-2 slds-p-horizontal_small">
+          <lightning-input label="URL" type="text" value={url} onchange={handleUrlChange} required></lightning-input>
+        </div>
+        <!-- Row 2 | Column 1 -->
+        <div class="slds-col slds-size_1-of-2 slds-p-horizontal_small">
+          <lightning-combobox label="Category" value={category} options={categories} onchange={handleCategoryChange}
+            required></lightning-combobox>
+        </div>
+      </div>
+    </lightning-modal-body>
 
-    <!-- Form -->
-    <div class="slds-grid slds-wrap">
-      <!-- Row 1 | Column 1 -->
-      <div class="slds-col slds-size_1-of-2 slds-p-horizontal_small">
-        <lightning-input label="Label" type="text" value={label} onchange={handleLabelChange} required></lightning-input>
-      </div>
-      <!-- Row 1 | Column 2 -->
-      <div class="slds-col slds-size_1-of-2 slds-p-horizontal_small">
-        <lightning-input label="URL" type="text" value={url} onchange={handleUrlChange} required></lightning-input>
-      </div>
-      <!-- Row 2 | Column 1 -->
-      <div class="slds-col slds-size_1-of-2 slds-p-horizontal_small">
-        <lightning-combobox label="Category" value={category} options={categories} onchange={handleCategoryChange} required></lightning-combobox>
-      </div>
-    </div>
-  </lightning-modal-body>
+    <!-- FOOTER -->
+    <lightning-modal-footer>
+      <lightning-button variant="destructive-text" label={labels.CL_Button_Cancel} title="Cancel action"
+        onclick={cancelClick} class="slds-m-left_x-small"></lightning-button>
+      <lightning-button variant="brand" label={labels.CL_Button_Validate} title="Validate action" onclick={saveClick}
+        class="slds-m-left_x-small"></lightning-button>
+    </lightning-modal-footer>
+  </template>
 
-  <!-- FOOTER -->
-  <lightning-modal-footer>
-    <lightning-button variant="destructive-text" label={labels.CL_Button_Cancel} title="Cancel action"
-      onclick={cancelClick} class="slds-m-left_x-small"></lightning-button>
-    <lightning-button variant="brand" label={labels.CL_Button_Validate} title="Validate action" onclick={saveClick}
-      class="slds-m-left_x-small"></lightning-button>
-  </lightning-modal-footer>
+  <!-- ............................... -->
+  <!-- HTML TO UPDATE AN EXISTING LINK -->
+  <!-- ............................... -->
+  <template if:true={isUpdate}>
+    <!-- HEADER -->
+    <lightning-modal-header label={labels.CL_Text_TitleUpdateLinkModal}></lightning-modal-header>
+
+    <!-- BODY -->
+    <lightning-modal-body>
+      <p class="slds-p-horizontal_small">{labels.CL_Text_UpdateLinkModal}</p>
+      <!-- Form -->
+      <div class="slds-grid slds-wrap">
+        <!-- Row 1 | Column 1 -->
+        <div class="slds-col slds-size_1-of-2 slds-p-horizontal_small">
+          <lightning-input label="Label" type="text" value={label} onchange={handleLabelChange} maxlength="50"
+            required></lightning-input>
+        </div>
+        <!-- Row 1 | Column 2 -->
+        <div class="slds-col slds-size_1-of-2 slds-p-horizontal_small">
+          <lightning-input label="URL" type="text" value={url} onchange={handleUrlChange} required></lightning-input>
+        </div>
+        <!-- Row 2 | Column 1 -->
+        <div class="slds-col slds-size_1-of-2 slds-p-horizontal_small">
+          <lightning-combobox label="Category" value={category} options={categories} onchange={handleCategoryChange}
+            required></lightning-combobox>
+        </div>
+      </div>
+    </lightning-modal-body>
+
+    <!-- FOOTER -->
+    <lightning-modal-footer>
+      <lightning-button variant="destructive-text" label={labels.CL_Button_Cancel} title="Cancel action"
+        onclick={cancelClick} class="slds-m-left_x-small"></lightning-button>
+      <lightning-button variant="brand" label={labels.CL_Button_Validate} title="Validate action" onclick={updateClick}
+        class="slds-m-left_x-small"></lightning-button>
+    </lightning-modal-footer>
+  </template>
 </template>

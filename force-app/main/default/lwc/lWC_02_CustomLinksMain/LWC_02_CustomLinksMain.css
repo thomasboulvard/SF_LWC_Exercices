@@ -12,9 +12,10 @@
 }
 
 .user-col{
+    padding: 1rem;
     background-color: #fff;
     color: #3F5679;
-    height: 4rem;
+    height: 5rem;
 }
 
 .salutation{
@@ -24,5 +25,4 @@
 .title-col{
     background-color: #E0E5EE;
     color: #5F7395;
-    /* height: 1.5rem; */
 }

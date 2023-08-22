@@ -1,26 +1,62 @@
+<!-- ................................... -->
+<!-- HTML TO CREATE A BRAND NEW CATEGORY -->
+<!-- ................................... -->
 <template>
-  <!-- HEADER -->
-  <lightning-modal-header label={labels.CL_Text_TitleCreateCategoryModal}></lightning-modal-header>
+  <template if:false={isUpdate}>
+    <!-- HEADER -->
+    <lightning-modal-header label={labels.CL_Text_TitleCreateCategoryModal}></lightning-modal-header>
 
-  <!-- BODY -->
-  <lightning-modal-body>
-    <p class="slds-p-horizontal_small">{labels.CL_Text_CreateCategoryModal}</p>
-    <div class="slds-form-element slds-p-around_medium">
-      <label class="slds-form-element__label" for="text-input-id-47">
-        <abbr class="slds-required" title="required">* </abbr>{labels.CL_Text_LabelCategoryModal}
-      </label>
-      <div class="slds-form-element__control">
-        <input type="text" id="text-input-id-47" placeholder="ex : my links" required="" class="slds-input"
-          value={categoryLabel} onchange={handleCategoryLabelChange} />
+    <!-- BODY -->
+    <lightning-modal-body>
+      <p class="slds-p-horizontal_small">{labels.CL_Text_CreateCategoryModal}</p>
+      <div class="slds-form-element slds-p-around_medium">
+        <label class="slds-form-element__label" for="text-input-id-47">
+          <abbr class="slds-required" title="required">* </abbr>{labels.CL_Text_LabelCategoryModal}
+        </label>
+        <div class="slds-form-element__control">
+          <input type="text" id="text-input-id-47" placeholder="ex : my links" required="" class="slds-input"
+            value={categoryLabel} onchange={handleCategoryLabelChange} maxlength="35" />
+        </div>
       </div>
-    </div>
-  </lightning-modal-body>
+    </lightning-modal-body>
 
-  <!-- FOOTER -->
-  <lightning-modal-footer>
-    <lightning-button variant="destructive-text" label={labels.CL_Button_Cancel} title="Cancel action"
-      onclick={cancelClick} class="slds-m-left_x-small"></lightning-button>
-    <lightning-button variant="brand" label={labels.CL_Button_Validate} title="Validate action" onclick={saveClick}
-      class="slds-m-left_x-small"></lightning-button>
-  </lightning-modal-footer>
+    <!-- FOOTER -->
+    <lightning-modal-footer>
+      <lightning-button variant="destructive-text" label={labels.CL_Button_Cancel} title="Cancel action"
+        onclick={cancelClick} class="slds-m-left_x-small"></lightning-button>
+      <lightning-button variant="brand" label={labels.CL_Button_Validate} title="Validate action" onclick={saveClick}
+        class="slds-m-left_x-small"></lightning-button>
+    </lightning-modal-footer>
+  </template>
+
+
+  <!-- ................................... -->
+  <!-- HTML TO UPDATE AN EXISTING CATEGORY -->
+  <!-- ................................... -->
+  <template if:true={isUpdate}>
+    <!-- HEADER -->
+    <lightning-modal-header label={labels.CL_Text_TitleUpdateCategoryModal}></lightning-modal-header>
+
+    <!-- BODY -->
+    <lightning-modal-body>
+      <p class="slds-p-horizontal_small">{labels.CL_Text_UpdateCategoryModal}</p>
+      <div class="slds-form-element slds-p-around_medium">
+        <label class="slds-form-element__label" for="text-input-id-99">
+          <abbr class="slds-required" title="required">* </abbr>{labels.CL_Text_LabelCategoryModal}
+        </label>
+        <div class="slds-form-element__control">
+          <input type="text" id="text-input-id-99" placeholder="ex : my links" required="" class="slds-input"
+            value={categoryLabel} onchange={handleCategoryLabelChange} maxlength="35" />
+        </div>
+      </div>
+    </lightning-modal-body>
+
+    <!-- FOOTER -->
+    <lightning-modal-footer>
+      <lightning-button variant="destructive-text" label={labels.CL_Button_Cancel} title="Cancel action"
+        onclick={cancelClick} class="slds-m-left_x-small"></lightning-button>
+      <lightning-button variant="brand" label={labels.CL_Button_Validate} title="Validate action" onclick={updateClick}
+        class="slds-m-left_x-small"></lightning-button>
+    </lightning-modal-footer>
+  </template>
 </template>

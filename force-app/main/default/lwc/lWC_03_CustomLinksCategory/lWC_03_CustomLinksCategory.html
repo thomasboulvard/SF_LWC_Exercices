@@ -6,19 +6,21 @@
   @last modified by  : Thomas Boulvard
 -->
 <template>
-  <template if:true={categories.data}>
-    <template for:each={categories.data} for:item="category">
+  <template if:true={categories}>
+    <template for:each={categories} for:item="category">
       <div key={category.Id}>
         <div class="slds-grid">
-          <h4 class="slds-col slds-align-middle slds-size_2-of-3 category-title">{category.Category_Label__c}</h4>
-          <div class="slds-col lgc-bg slds-size_1-of-3 category-buttons">
-            <lightning-button-icon icon-name="utility:add" variant="container" alternative-text="add Link" class="slds-m-left_xx-small" title={labels.CL_HelpText_AddLink} onclick={addLink}></lightning-button-icon>
-            <lightning-button-icon icon-name="utility:edit" variant="container" alternative-text="edit category" class="slds-m-left_xx-small" title={labels.CL_HelpText_UpdateCategory}></lightning-button-icon>
-            <lightning-button-icon icon-name="utility:delete" variant="container" alternative-text="Delete Category" class="slds-m-left_xx-small" title={labels.CL_HelpText_DeleteCategory} onclick={deleteCategory}></lightning-button-icon>
+          <h4 class="slds-col slds-align-middle slds-size_9-of-12 category-title">{category.Category_Label__c}</h4>
+          <div class="slds-col lgc-bg slds-size_3-of-12">
+            <div class="slds-float_right">
+              <lightning-button-icon icon-name="utility:add" variant="container" alternative-text="add Link" class="slds-m-left_xx-small" title={labels.CL_HelpText_AddLink} data-category-id={category.Id} onclick={addLink}></lightning-button-icon>
+              <lightning-button-icon icon-name="utility:edit" variant="container" alternative-text="edit category" class="slds-m-left_xx-small" title={labels.CL_HelpText_UpdateCategory} data-category-id={category.Id} onclick={handleUpdateCategory}></lightning-button-icon>
+              <lightning-button-icon icon-name="utility:delete" variant="container" alternative-text="Delete Category" class="slds-m-left_xx-small" title={labels.CL_HelpText_DeleteCategory} data-category-id={category.Id} onclick={handleDeleteCategory}></lightning-button-icon>
+            </div>
           </div>
         </div>
           <!-- Links row -->
-          <div class="slds-grid slds-grid_vertical link-col">
+          <div class="slds-grid slds-grid_vertical grid link-col">
             <c-l-W-C_-04_-Custom-Links-U-R-L category-id={category.Id}></c-l-W-C_-04_-Custom-Links-U-R-L>
           </div>
       </div>

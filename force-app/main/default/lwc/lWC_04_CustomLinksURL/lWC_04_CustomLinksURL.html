@@ -7,23 +7,25 @@
 -->
 
 <template>
-  <template if:true={links.data}>
-    <template for:each={links.data} for:item="link">
-      <div key={link.Id} class="slds-p-around_small link-container">
-        <div class="slds-grid slds-gutters">
-          <div class="slds-col slds-p-left_medium slds-size_2-of-3 links-title">
-            <lightning-icon class="slds-m-right_x-small" size="small" icon-name="doctype:link" alternative-text="link"></lightning-icon>
-            <a href={link.Link_URL__c} class="slds-text-align_left title">{link.Link_Label__c}</a>
+  <template if:true={links}>
+    <template for:each={links} for:item="link">
+      <div key={link.Id} class="link-container">
+        <div class="slds-grid">
+          <div class="slds-col slds-align-middle slds-size_9-of-12 links-title">
+            <lightning-icon class="slds-m-right_x-small" size="x-small" icon-name='doctype:link' alternative-text="link"></lightning-icon>
+            <a href={link.Link_URL__c} class="slds-text-align_left slds-hyphenate title">{link.Link_Label__c}</a>
           </div>
-          <div class="slds-col slds-p-right_medium slds-size_1-of-3 lgc-bg">
-            <lightning-button-icon icon-name="utility:edit" variant="container" alternative-text="edit category" class="slds-m-left_xx-small" title={labels.CL_HelpText_UpdateLink}></lightning-button-icon>
-            <lightning-button-icon icon-name="utility:delete" variant="container" alternative-text="Delete" class="slds-m-left_xx-small" title={labels.CL_HelpText_DeleteLink}></lightning-button-icon>
+          <div class="slds-col lgc-bg slds-size_3-of-12 link-buttons">
+            <div class="slds-float_right">
+              <lightning-button-icon icon-name="utility:edit" variant="container" alternative-text="edit category" class="slds-m-left_xx-small" title={labels.CL_HelpText_UpdateLink} data-link-id={link.Id} onclick={handleUpdateLink}></lightning-button-icon>
+              <lightning-button-icon icon-name="utility:delete" variant="container" alternative-text="Delete" class="slds-m-left_xx-small" title={labels.CL_HelpText_DeleteLink} data-link-id={link.Id} onclick={handleDeleteLink}></lightning-button-icon>
+            </div>
           </div>
         </div>
       </div>
     </template>
-    <template if:true={links.error}>
+    <!-- <template if:true={links.error}>
       <p>Error retrieving data</p>
-    </template>
+    </template> -->
   </template>
 </template>

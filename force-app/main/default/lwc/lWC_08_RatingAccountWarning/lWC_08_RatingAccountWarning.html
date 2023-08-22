@@ -1,0 +1,22 @@
+<template>
+    <!-- HOT -->
+    <template if:true={hot}>
+        <div class="slds-align_absolute-center container hot-container">
+            <img class="slds-align-middle" alt="HOT icon" src={hotIcon}/>
+        </div>
+    </template>
+
+    <!-- WARM -->
+    <template if:true={warm}>
+        <div class="slds-align_absolute-center container warm-container">
+            <img class="slds-align-middle" alt="WARM icon" src={warmIcon}/>
+        </div>
+    </template>
+
+    <!-- COLD -->
+    <template if:true={cold}>
+        <div class="slds-align_absolute-center container cold-container">
+            <img class="slds-align-middle" alt="COLD icon" src={coldIcon}/>
+        </div>
+    </template>
+</template>

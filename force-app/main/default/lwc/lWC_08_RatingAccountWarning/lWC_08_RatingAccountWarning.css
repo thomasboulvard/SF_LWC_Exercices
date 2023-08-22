@@ -1,0 +1,24 @@
+img{
+    height: 6rem;
+    width: 6rem;
+}
+
+.container{
+    height: 9rem;
+    border-radius: 0.3rem;
+}
+
+.hot-container{
+    background-color: #FD8D14;
+    border: 1px solid #D71313;
+}
+
+.warm-container{
+    background-color: #279EFF;
+    border: 1px solid #F0DE36;
+}
+
+.cold-container{
+    background-color: #ACFADF;
+    border: 1px solid #0D1282;
+}

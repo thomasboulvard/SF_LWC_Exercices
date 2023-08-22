@@ -52,7 +52,8 @@ export default class LWC_02_CustomLinksMain extends LightningElement {
         const result = await LWC_05_CustomLinksModalAddCategory.open({
             size: 'small',
             description: 'My Modal',
-            content : 'oui',
+            content: 'oui',
+            isUpdate: false,
         });
         console.log(result);
     }
